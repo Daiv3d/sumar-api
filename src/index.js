@@ -31,6 +31,37 @@ app.post('/sumar',(req, res) =>{
          const resultado = num1 + num2;
          res.send({resultado});
 });
+app.post('/resta',(req, res) =>{
+    const{num1, num2} = req.body; 
+    
+         if (!num1 || !num2 ){
+            return res.status(400).send({error: 'Faltan números por sumar'})
+         }
+         const resultado = num1 - num2;
+         res.send({resultado});
+});
+
+app.post('/multi',(req, res) =>{
+    const{num1, num2} = req.body; 
+    
+         if (!num1 || !num2 ){
+            return res.status(400).send({error: 'Faltan números por multiplicar '})
+         }
+         const resultado = num1 * num2;
+         res.send({resultado});
+});
+app.post('/division',(req, res) =>{
+    const{num1, num2} = req.body; 
+    
+         if (!num1 || !num2 ){
+            return res.status(400).send({error: 'Faltan números por dividir'})
+         }
+         const resultado = num1 / num2;
+         res.send({resultado});
+});
+
+
+
 
 
 

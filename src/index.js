@@ -80,6 +80,61 @@ app.post('/area_triangulo', (req, res) => {
     res.send({ resultado });
 });
 
+app.post('/perimetro_triangulo', (req, res) => {
+    const { base, altura } = req.body;
+
+    if (lado1 === undefined || lado2 === undefined || lado3 === undefined) {
+        return res.status(400).send({ error: 'Faltan números para calcular el área' });
+    }
+
+    const resultado = lado1 + lado2 + lado3;
+    res.send({ resultado });
+
+});
+
+app.post('/area_cuadrado', (req, res) => {
+    const { lado } = req.body;
+
+    if (lado === undefined) {
+        return res.status(400).send({ error: 'Falta el lado del cuadrado' });
+    }
+
+    const resultado = lado * lado;
+    res.send({ resultado });
+});
+
+app.post('/perimetro_cuadrado', (req, res) => {
+    const { lado } = req.body;
+
+    if (lado === undefined) {
+        return res.status(400).send({ error: 'Falta el lado del cuadrado' });
+    }
+
+    const resultado = lado * 4;
+    res.send({ resultado });
+});
+
+app.post('/area_circulo', (req, res) => {
+    const { radio } = req.body;
+
+    if (radio === undefined) {
+        return res.status(400).send({ error: 'Falta el radio del círculo' });
+    }
+
+    const resultado = Math.PI * radio * radio;
+    res.send({ resultado });
+});
+
+app.post('/perimetro_circulo', (req, res) => {
+    const { radio } = req.body;
+
+    if (radio === undefined) {
+        return res.status(400).send({ error: 'Falta el radio del círculo' });
+    }
+
+    const resultado = 2 * Math.PI * radio;
+    res.send({ resultado });
+});
 
 
 app.listen(app.get('port'), () => {

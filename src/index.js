@@ -59,7 +59,16 @@ app.post('/division',(req, res) =>{
          const resultado = num1 / num2;
          res.send({resultado});
 });
+app.post('/area-triangulo',(req, tes) =>{ //http://localhost:3000/sumar 
+   const{base, altura} = req.body;
 
+if(!base || !altura){
+    return res.status(400).send({error : 'Faltan números para Calcular el Area'});
+}
+const resultado = base * altura /2 ;
+    res.send ({resultado});
+    
+}); 
 
 
 

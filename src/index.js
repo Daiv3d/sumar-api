@@ -23,55 +23,63 @@ app.get('/', (req,res)=> {
 });
 
 app.post('/sumar',(req, res) =>{
-    const{num1, num2} = req.body; 
-    
-         if (!num1 || !num2 ){
-            return res.status(400).send({error: 'Faltan números por sumar'})
-         }
-         const resultado Suma= num1 + num2;
-         res.send({resultado});
+    const { num1, num2 } = req.body;
+
+    if (num1 === undefined || num2 === undefined){
+        return res.status(400).send({error: 'Faltan números por sumar'});
+    }
+
+    const resultado = num1 + num2;
+    res.send({ resultado });
 });
+
 app.post('/resta',(req, res) =>{
-    const{num1, num2} = req.body; 
-    
-         if (!num1 || !num2 ){
-            return res.status(400).send({error: 'Faltan números por sumar'})
-         }
-         const resultado_resta = num1 - num2;
-         res.send({resultado_resta});
+    const { num1, num2 } = req.body;
+
+    if (num1 === undefined || num2 === undefined){
+        return res.status(400).send({error: 'Faltan números por restar'});
+    }
+
+    const resultado = num1 - num2;
+    res.send({ resultado });
 });
 
 app.post('/multi',(req, res) =>{
-    const{num1, num2} = req.body; 
-    
-         if (!num1 || !num2 ){
-            return res.status(400).send({error: 'Faltan números por multiplicar '})
-         }
-         const resultado_multi = num1 * num2;
-         res.send({resultado_multi});
+    const { num1, num2 } = req.body;
+
+    if (num1 === undefined || num2 === undefined){
+        return res.status(400).send({error: 'Faltan números por multiplicar'});
+    }
+
+    const resultado = num1 * num2;
+    res.send({ resultado });
 });
+
 app.post('/division',(req, res) =>{
-    const{num1, num2} = req.body; 
-    
-         if (!num1 || !num2 ){
-            return res.status(400).send({error: 'Faltan números por dividir'})
-         }
-         const resultado_division = num1 / num2;
-         res.send({resultado_division});
+    const { num1, num2 } = req.body;
+
+    if (num1 === undefined || num2 === undefined){
+        return res.status(400).send({error: 'Faltan números por dividir'});
+    }
+
+    if (num2 === 0){
+        return res.status(400).send({error: 'No se puede dividir entre 0'});
+    }
+
+    const resultado = num1 / num2;
+    res.send({ resultado });
 });
+
 app.post('/area-triangulo', (req, res) => {
     const { base, altura } = req.body;
 
-    if (!base || !altura) {
+    if (base === undefined || altura === undefined) {
         return res.status(400).send({ error: 'Faltan números para calcular el área' });
     }
 
-    const resultado_area = (base * altura) / 2;
-    res.send({ resultado_area });
+    const resultado = (base * altura) / 2;
+    res.send({ resultado });
 });
-
-
-
 
 
 app.listen(app.get('port'), () => {

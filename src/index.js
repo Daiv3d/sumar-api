@@ -81,15 +81,14 @@ app.post('/area_triangulo', (req, res) => {
 });
 
 app.post('/perimetro_triangulo', (req, res) => {
-    const { base, altura } = req.body;
+    const { lado1, lado2, lado3 } = req.body;
 
     if (lado1 === undefined || lado2 === undefined || lado3 === undefined) {
-        return res.status(400).send({ error: 'Faltan números para calcular el área' });
+        return res.status(400).send({ error: 'Faltan lados para calcular el perímetro' });
     }
 
     const resultado = lado1 + lado2 + lado3;
     res.send({ resultado });
-
 });
 
 app.post('/area_cuadrado', (req, res) => {

@@ -28,7 +28,7 @@ app.post('/sumar',(req, res) =>{
          if (!num1 || !num2 ){
             return res.status(400).send({error: 'Faltan números por sumar'})
          }
-         const resultado = num1 + num2;
+         const resultado Suma= num1 + num2;
          res.send({resultado});
 });
 app.post('/resta',(req, res) =>{
@@ -37,8 +37,8 @@ app.post('/resta',(req, res) =>{
          if (!num1 || !num2 ){
             return res.status(400).send({error: 'Faltan números por sumar'})
          }
-         const resultado = num1 - num2;
-         res.send({resultado});
+         const resultado_resta = num1 - num2;
+         res.send({resultado_resta});
 });
 
 app.post('/multi',(req, res) =>{
@@ -47,8 +47,8 @@ app.post('/multi',(req, res) =>{
          if (!num1 || !num2 ){
             return res.status(400).send({error: 'Faltan números por multiplicar '})
          }
-         const resultado = num1 * num2;
-         res.send({resultado});
+         const resultado_multi = num1 * num2;
+         res.send({resultado_multi});
 });
 app.post('/division',(req, res) =>{
     const{num1, num2} = req.body; 
@@ -56,19 +56,19 @@ app.post('/division',(req, res) =>{
          if (!num1 || !num2 ){
             return res.status(400).send({error: 'Faltan números por dividir'})
          }
-         const resultado = num1 / num2;
-         res.send({resultado});
+         const resultado_division = num1 / num2;
+         res.send({resultado_division});
 });
-app.post('/area-triangulo',(req, tes) =>{ //http://localhost:3000/sumar 
-   const{base, altura} = req.body;
+app.post('/area-triangulo', (req, res) => {
+    const { base, altura } = req.body;
 
-if(!base || !altura){
-    return res.status(400).send({error : 'Faltan números para Calcular el Area'});
-}
-const resultado = base * altura /2 ;
-    res.send ({resultado});
-    
-}); 
+    if (!base || !altura) {
+        return res.status(400).send({ error: 'Faltan números para calcular el área' });
+    }
+
+    const resultado_area = (base * altura) / 2;
+    res.send({ resultado_area });
+});
 
 
 
